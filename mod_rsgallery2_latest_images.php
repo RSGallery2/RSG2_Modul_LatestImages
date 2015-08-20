@@ -42,6 +42,9 @@ $displayname 		= $params->get('displayname', 			'0');
 // Display the date and its format
 $displaydate 		= $params->get('displaydate', 			'0');
 $dateformat 		= $params->get('dateformat', 			'd-m-Y');
+$IsLink2Gallery     = $params->get('link2gallery', 			'0');
+$IsLinkNot2Image 	= $params->get('link2notsingleimage',   '0'); // Not to single image gallery view
+
 // ****************** Parameters - end ***********************************
 // ****************** Collect CSS styling from parameters ****************
 // Get CSS image height/width attributes
@@ -76,7 +79,8 @@ $query->order('link');
 $database->setQuery($query);
 $RSG2ItemidObj = $database->loadObjectList();
 if (count($RSG2ItemidObj) > 0) {
-	$RSG2Itemid = $RSG2ItemidObj[0]->id;
+	//$RSG2Itemid = $RSG2ItemidObj[0]->id;
+	$RSG2MenuId = $RSG2ItemidObj[0]->id;
 }
 
 // ****************** Take View Access into account **********************
@@ -145,7 +149,7 @@ if ($galleryids) {
 
 
 // ****************** Query **********************************************
-// Query to get limited ($count) number of latest galleries
+// Query to get limited ($count) number of latest images
 //$query = "SELECT * FROM #__rsgallery2_files $list ORDER BY date DESC LIMIT $count";
 $result = Null;
 $query = $database->getQuery(true);
@@ -167,7 +171,10 @@ $database->setQuery($query,0,$count);	//$count is the number of results to retur
 $latestImages = $database->loadAssocList();
 if(!$latestImages){
 	// Error handling
+	// ToDo: Ask module admin if a message is required (?debug) and to provide this error message
+	// enque message
 }
+
 // ****************** Query - end ***************************************
 
 // ****************** Output *********************************************

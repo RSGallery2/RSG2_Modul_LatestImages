@@ -16,6 +16,8 @@ defined('_JEXEC') or die();
 			if (!isset($latestImages[$item])) {
 				continue;
 			}
+			
+			$HTML = '';
 			echo '<tr>';
 			for ($column = 1; $column <= $countcolumns; $column++) {
 				echo '<td>';
@@ -27,17 +29,54 @@ defined('_JEXEC') or die();
 				// Get the name of the item to show
 				$itemName = $image['name'];
 				
+				// Click on image shall lead to gallery view
+				if ($IsLink2Gallery)
+				{
+					// Link to gallery all images table view
+					if (IsLinkNot2Image)
+					{
+						//index.php/bildergallerie/gallery/88/itemPage/41
+						$HTML .= '<a href="';
+							//.JRoute::_('index.php?option=com_rsgallery2&Itemid='.$RSG2Itemid.'&id='.$row->id
+							// .'&catid='.$row->gallery_id);
+						$HTML .= JRoute::_('index.php?option=com_rsgallery2'
+							. '&Itemid='.$RSG2MenuId
+							. '&id=' . $image['id']
+							. '&catid=' . $image['gallery_id']
+						);
+						
+						$HTML .= '">');  // ToDo: Title ...
+					}
+					else
+					{
+						// Link to gallery single image view
+						//index.php/bildergallerie/gallery/88/itemPage/54/asInline
+						$HTML .= '<a href="';
+							// JRoute::_('index.php?option=com_rsgallery2&page=inline&Itemid='.$RSG2Itemid.
+							// '&id='.$row->id.'&catid='.$row->gallery_id.'&limitstart='.$limitstart);
+						
+						$HTML .= JRoute::_('index.php?option=com_rsgallery2&page=inline'
+							. '&Itemid='.$RSG2MenuId
+							. '&id=' . $image['id']
+							. '&catid=' . $image['gallery_id']
+						);
+						
+						$HTML .= '">');  // ToDo: Title ...
+						
+					}
+				}
+				
 				// Create HTML for image: get the url (with/without watermark) with img attribs
 				if ($displaytype == 1) {
 					// *** display ***: 
 					$watermark = $rsgConfig->get('watermark');
 					$imageUrl = $watermark ? waterMarker::showMarkedImage( $itemName ) : imgUtils::getImgDisplay( $itemName );
-					$HTML = '<img class="rsg2-displayImage" src="'.$imageUrl.'" alt="'.$itemName.'" title="'.$itemName.'" '.$imgAttributes.'/>';
+					$HTML .= '<img class="rsg2-displayImage" src="'.$imageUrl.'" alt="'.$itemName.'" title="'.$itemName.'" '.$imgAttributes.'/>';
 				} elseif ($displaytype == 2) {
 					// *** original ***
 					$watermark = $rsgConfig->get('watermark');
 					$imageOriginalUrl = $watermark ? waterMarker::showMarkedImage( $itemName, 'original' ) : imgUtils::getImgOriginal( $itemName );
-					$HTML = '<img class="rsg2-displayImage" src="'.$imageOriginalUrl.'" alt="'.$itemName.'" title="'.$itemName.'" '.$imgAttributes.'/>';
+					$HTML .= '<img class="rsg2-displayImage" src="'.$imageOriginalUrl.'" alt="'.$itemName.'" title="'.$itemName.'" '.$imgAttributes.'/>';
 				} else {
 					// *** thumb ***
 					$imageThumbUrl = imgUtils::getImgThumb( $itemName );
@@ -46,6 +85,12 @@ defined('_JEXEC') or die();
 				$name	= $image['name'];
 				$date	= $image['date'];
 
+				// Click on image shall lead to gallery view
+				if ($IsLink2Gallery)
+				{
+					$HTML .= "</a>";
+				}
+				
 				// Show it
 				?>
 				<div class="mod_rsgallery2_latest_images_attibutes" <?php echo $divAttributes;?>>
