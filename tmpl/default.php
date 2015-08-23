@@ -7,17 +7,8 @@
 
 defined('_JEXEC') or die();
 
-echo '<br>\$IsLink2Gallery: '.$IsLink2Gallery.' <br> ';
-echo '<br>\$IsLinkNot2Image: '.$IsLinkNot2Image.' <br> ';
-echo '<br>\$RSG2MenuId: '.$RSG2MenuId.' <br> ';
-echo '<br>\: '.''.' <br> ';
-echo '<br>\: '.''.' <br> ';
-echo '<br>\: '.''.' <br> ';
-echo '<br> <br> ';
-echo '<br> <br> ';
-
-
 ?>
+
 <div class="mod_rsgallery2_latest_images">
 	<table class="mod_rsgallery2_latest_images_table" >
 		<?php 
@@ -43,31 +34,8 @@ echo '<br> <br> ';
 				// Click on image shall lead to gallery view
 				if ($IsLink2Gallery)
 				{
-/*
-http://localhost/joomla3x/index.php/galleries/gallery/3/item/20
-(1)\$HTML: "<a href="/joomla3x/index.php/galleries/gallery/3/item/20">"
-(3)\$HTML: "
-	<a href="/joomla3x/index.php/galleries/gallery/3/item/20">
-		<img class="rsg2-displayImage" src="http://localhost/joomla3x/images/rsgallery/thumb/DSC_0859.jpg.jpg" alt="DSC_0859.jpg" title="DSC_0859.jpg" />
-	</a>
-
-(2)\$HTML: <a href="/joomla3x/index.php/galleries/gallery/3/item/20/asInline"
-(3)\$HTML: "
-	<a href="/joomla3x/index.php/galleries/gallery/3/item/20/asInline">
-		<img class="rsg2-displayImage" src="http://localhost/joomla3x/images/rsgallery/thumb/DSC_0859.jpg.jpg" alt="DSC_0859.jpg" title="DSC_0859.jpg" />
-	</a>
-http://localhost/joomla3x/index.php/galleries/gallery/3/item/20/asInline
-
-
-shall be http://localhost/joomla3x/index.php/galleries/gallery/3/itemPage/9
-
-
-                /joomla3x/index.php/galleries/gallery/3/itemPage=13
-http://localhost/joomla3x/index.php/galleries/gallery/3/itemPage=13
-http://localhost/joomla3x/index.php/galleries/gallery/3/itemPage/9
- */
-					// Link to gallery all images table view
-					if ($IsLinkNot2Image)
+					//--- Link to gallery all images table view ------------
+					if (!$IsLink2GallerySingleImage)
 					{
 						//index.php/bildergallerie/gallery/88/itemPage/41
 						$HTML .= '<a href="';
@@ -87,11 +55,12 @@ http://localhost/joomla3x/index.php/galleries/gallery/3/itemPage/9
 						
 						$HTML .= '">';  // ToDo: Title ...
 
-                        echo '<br>(1)\$HTML: "'.htmlentities($HTML).'"<br> ';
+//                        echo '<br>(1)\$HTML: "'.htmlentities($HTML).'"<br> ';
                     }
 					else
 					{
-						// Link to gallery single image view
+						//--- Link to gallery single image view --------------
+
 						//index.php/bildergallerie/gallery/88/itemPage/54/asInline
 						$HTML .= '<a href="';
 							// JRoute::_('index.php?option=com_rsgallery2&page=inline&Itemid='.$RSG2Itemid.
@@ -111,7 +80,7 @@ http://localhost/joomla3x/index.php/galleries/gallery/3/itemPage/9
 */
 						$HTML .= '">';  // ToDo: Title ...
 
-                        echo '<br>(2)\$HTML: '.htmlentities($HTML).' <br> ';
+//                        echo '<br>(2)\$HTML: '.htmlentities($HTML).' <br> ';
 					}
 				}
 				

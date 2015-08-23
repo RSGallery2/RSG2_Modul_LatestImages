@@ -43,7 +43,7 @@ $displayname 		= $params->get('displayname', 			'0');
 $displaydate 		= $params->get('displaydate', 			'0');
 $dateformat 		= $params->get('dateformat', 			'd-m-Y');
 $IsLink2Gallery     = $params->get('link2gallery', 			'0');
-$IsLinkNot2Image 	= $params->get('link2notsingleimage',   '0'); // Not to single image gallery view
+$IsLink2GallerySingleImage 	= $params->get('link2gallerysingleimage',   '0');
 
 // ****************** Parameters - end ***********************************
 // ****************** Collect CSS styling from parameters ****************
