@@ -30,24 +30,23 @@ defined('_JEXEC') or die();
 				$image = $latestImages[$item];
 				// Get the name of the item to show
 				$itemName = $image['name'];
-				
+
 				// Click on image shall lead to gallery view
-				if ($IsLink2Gallery)
+				if ($ImageLinkType > 0)
 				{
                     $url = '';
 
-					//--- Link to gallery all images table view ------------
-					if (!$IsLink2GallerySingleImage)
-					{
-                        // Required: similar to index.php/gallery-menu-name/gallery/88/itemPage/41
-                        $url = $Rsg2ImageRoutes->Link2ParentGallery ($image['gallery_id'], ($image['ordering'] -1));
+                    switch ($ImageLinkType)
+                    {
+                        case 1: //
+                            //--- Link to gallery all images table view ------------
+                            $url = $Rsg2ImageRoutes->Link2ParentGallery ($image['gallery_id'], ($image['ordering'] -1));
+                            break;
+                        case 2:
+                            //--- Link to gallery single image view --------------
+                            $url = $Rsg2ImageRoutes->Link2GallerySingleImageView ($image['gallery_id'], $image['id']);
+                            break;
                     }
-					else
-					{
-						//--- Link to gallery single image view --------------
-                        // Required: index.php/gallery-menu-name/gallery/88/itemPage/54/asInline
-                        $url = $Rsg2ImageRoutes->Link2GallerySingleImageView ($image['gallery_id'], $image['id']);
-					}
 
                     $HTML .= '<a href="'.JRoute::_($url).'">';  // ToDo: Title ...
 				}
@@ -72,7 +71,7 @@ defined('_JEXEC') or die();
 				$date	= $image['date'];
 
 				// Click on image shall lead to gallery view
-				if ($IsLink2Gallery)
+                if ($ImageLinkType > 0)
 				{
 					$HTML .= "</a>";
 				}

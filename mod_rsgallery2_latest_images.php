@@ -47,8 +47,10 @@ $displayname 		= $params->get('displayname', 			'0');
 // Display the date and its format
 $displaydate 		= $params->get('displaydate', 			'0');
 $dateformat 		= $params->get('dateformat', 			'd-m-Y');
-$IsLink2Gallery     = $params->get('link2gallery', 			'0');
-$IsLink2GallerySingleImage 	= $params->get('link2gallerysingleimage',   '0');
+$ImageLinkType      = $params->get('imagelinktype', 		'0');
+
+//$IsLink2Gallery     = $params->get('link2gallery', 			'0');
+//$IsLink2GallerySingleImage 	= $params->get('link2gallerysingleimage',   '0');
 
 //--- Collect CSS styling from parameters -------------------------------
 // Get CSS image height/width attributes

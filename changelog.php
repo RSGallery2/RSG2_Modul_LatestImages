@@ -24,6 +24,10 @@ Legend:
 
 ---------------- Recent ----------------
 
+---------------- 2015-08-23 whazzup V4.0.4 -------------
++ Changed selection of image link type to list.
+  It can now easyly be extended. Example Plain original image view.
+
 ---------------- 2015-08-23 whazzup V4.0.3 -------------
 + Added link from image to parent gallery (Set in config)
 + Added link from image to gallery single image view (Set in config)
