@@ -69,7 +69,7 @@ if (($divNameHeight)) {
 // ****************** Collect CSS styling from parameters - end **********
 
 // Get RSGallery2 Itemid from first component menu item for use in links
-$RSG2Itemid = Null;
+$RSG2MenuId = Null;
 $query = $database->getQuery(true);
 $query->select('id');
 $query->from('#__menu');
@@ -181,3 +181,50 @@ if(!$latestImages){
 // Let's display what we've gathered: get the layout
 require JModuleHelper::getLayoutPath('mod_rsgallery2_latest_images', $params->get('layout', 'default'));
 // ****************** Output - end ***************************************
+
+
+// Get RSGallery2 Itemid from first component menu item for use in links
+function Rsg2MenuId ()
+{
+    $RSG2MenuId = Null;
+
+    $database = JFactory::getDbo();
+    $query = $database->getQuery(true);
+    $query->select('id');
+    $query->from('#__menu');
+    $query->where('published = 1');
+    $query->where("link like 'index.php?option=com_rsgallery2%'");
+    $query->order('link');
+    $database->setQuery($query);
+    $RSG2ItemidObj = $database->loadObjectList();
+    if (count($RSG2ItemidObj) > 0) {
+        //$RSG2Itemid = $RSG2ItemidObj[0]->id;
+        $RSG2MenuId = $RSG2ItemidObj[0]->id;
+    }
+
+    return $RSG2MenuId;
+}
+
+
+/* test 01 */
+function Rsg2MenuIdTmp ()
+{
+//------------------------------------------------------------------------
+    $db =& JFactory::getDBO();
+    $lang =& JFactory::getLanguage()->getTag();
+    $uri = 'index.php?option=com_search&view=search';
+
+    $db->setQuery('SELECT id FROM #__menu WHERE link LIKE ' . $db->Quote($uri . '%') . ' AND language=' . $db->Quote($lang) . ' LIMIT 1');
+
+    $itemId = ($db->getErrorNum()) ? 0 : intval($db->loadResult());
+//------------------------------------------------------------------------
+    $db = JFactory::getDBO();
+    $defaultRedirect = 'index.php?option=com_myapp&view=cpanel';
+    $db->setQuery('SELECT `id` FROM #__menu WHERE `link` LIKE ' . $db->Quote($defaultRedirect) . ' LIMIT 1');
+    $itemId = ($db->getErrorNum()) ? 0 : intval($db->loadResult());
+    if ($itemId) {
+        $rpath = JRequest::getString('return', base64_encode(JRoute::_('index.php?Itemid=' . $itemId)));
+    } else {
+        $rpath = JRequest::getString('return', base64_encode(JRoute::_('index.php?option=com_myapp&view=cpanel')));
+    }
+}
