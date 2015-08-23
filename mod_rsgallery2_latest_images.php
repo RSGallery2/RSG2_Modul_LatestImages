@@ -1,12 +1,17 @@
 <?php
+
 /**
-* RSGallery2 latest galleries module: shows latest galleries from the Joomla extension RSGallery2 (www.rsgallery2.nl).
-* @copyright (C) 2012 RSGallery2 Team
+* RSGallery2 latest galleries module:
+* Shows latest galleries from the Joomla extension RSGallery2 (www.rsgallery2.nl).
+* @copyright (C) 2012-2015 RSGallery2 Team
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
-* @version 3.1.0
+* @version 4.0.3
 **/
 
 defined('_JEXEC') or die();
+
+// returns links to be used in Jroute() to images views inside galleries
+require_once dirname(__FILE__) . '/Rsg2ImageRoutes.php';
 
 // Initialise RSGallery2 and other variables
 require_once(JPATH_BASE.'/administrator/components/com_rsgallery2/init.rsgallery2.php');
@@ -19,7 +24,7 @@ $document->addStyleSheet($url);
 
 global $rsgConfig;
 
-// ****************** Parameters *****************************************
+//--- Parameters --------------------------------------------------------------
 // Number of  latest galleries to display = number of rows times the number of columns
 $countrows			= (int) $params->get('countrows', 		'1');
 $countcolumns		= (int) $params->get('countcolumns',	'1');
@@ -45,8 +50,7 @@ $dateformat 		= $params->get('dateformat', 			'd-m-Y');
 $IsLink2Gallery     = $params->get('link2gallery', 			'0');
 $IsLink2GallerySingleImage 	= $params->get('link2gallerysingleimage',   '0');
 
-// ****************** Parameters - end ***********************************
-// ****************** Collect CSS styling from parameters ****************
+//--- Collect CSS styling from parameters -------------------------------
 // Get CSS image height/width attributes
 $imgAttributes="";
 if ($imageheight > 0) $imgAttributes .= ' height="'.$imageheight.'px"';
@@ -66,35 +70,28 @@ if (($divNameHeight)) {
 	//if ($divNameWidth > 0)  $divNameAttributes .= 'width:'.$divNameWidth.'px;';// The width setting of the class mod_rsgallery2_latest_galleries_attibute would overrule this, so makes no sense to do this now?
 	$divAttributes .= '"';
 }
-// ****************** Collect CSS styling from parameters - end **********
+//--- Collect CSS styling from parameters - end -------------------------------
 
 // Get RSGallery2 Itemid from first component menu item for use in links
-$RSG2MenuId = Null;
-$query = $database->getQuery(true);
-$query->select('id');
-$query->from('#__menu');
-$query->where('published = 1');
-$query->where("link like 'index.php?option=com_rsgallery2%'");
-$query->order('link');
-$database->setQuery($query);
-$RSG2ItemidObj = $database->loadObjectList();
-if (count($RSG2ItemidObj) > 0) {
-	//$RSG2Itemid = $RSG2ItemidObj[0]->id;
-	$RSG2MenuId = $RSG2ItemidObj[0]->id;
-}
+//$RSG2MenuId = Rsg2ImageRoutes::Rsg2MenuId();
+// for links: create jroute(s) class functions to different image views
+$Rsg2ImageRoutes = new Rsg2ImageRoutes ();
 
-// ****************** Take View Access into account **********************
+//--- Take View Access into account -------------------------------------------
+
 $user 		= JFactory::getUser();
 $groups		= $user->getAuthorisedViewLevels();
 $groupsIN 	= implode(", ",array_unique ($groups));
 $superAdmin = $user->authorise('core.admin');
-// ****************** Take View Access into account - end ****************
 
-// ****************** Select specific galleries and possibly subs ********
+//--- Select specific galleries and possibly subs -----------------------------
+
 if ($galleryids) {
 	$galleryarray = explode(',', $galleryids);
+    
 	// Include children?
 	if ($includeChildren) {
+        
 		//Function to help out
 		function treerecurse($ParentId,  $list, &$children, $maxlevel=20, $level=0) {
 			//if there are children for this id and the max.level isn't reached
@@ -113,11 +110,14 @@ if ($galleryids) {
 		// Get a list of all galleries (id/parent) ordered by parent/ordering
 		$database = JFactory::getDBO();
 		$query = $database->getQuery(true);
-		$query->select('id,parent');
-		$query->from('#__rsgallery2_galleries');
-		$query->order('parent, ordering');
+        
+		$query->select('id,parent')
+		    ->from('#__rsgallery2_galleries')
+		    ->order('parent, ordering');
 		$database->setQuery( $query );
+        
 		$allGalleries = $database->loadObjectList();
+
 		// Establish the hierarchy by first getting the children: 2dim. array $children[parentid][]
 		$children = array();
 		if ( $allGalleries ) {
@@ -128,6 +128,7 @@ if ($galleryids) {
 				$children[$pt] = $list;
 			}
 		}
+        
 		// Get the children of the user selected galleries
 		$selectedgalleries = $galleryarray;
 		foreach ($galleryarray as $galUser) {
@@ -145,29 +146,31 @@ if ($galleryids) {
 	// No 'where' clause needed to limit the search of galleries from
 	$galleryselection = 0;
 } 
-// ****************** Select specific galleries and possibly subs - end **
 
+//--- Query latest images -----------------------------------------------------
 
-// ****************** Query **********************************************
 // Query to get limited ($count) number of latest images
 //$query = "SELECT * FROM #__rsgallery2_files $list ORDER BY date DESC LIMIT $count";
 $result = Null;
+
 $query = $database->getQuery(true);
-$query->select('*');
-$query->from('#__rsgallery2_files');
-$query->where('published = 1');
+$query->select('*')
+    ->from('#__rsgallery2_files')
+    ->where('published = 1');
 /*	NOTE TODO Access should be checked for galleries, not for images
 // If user is not a Super Admin then use View Access Levels
 if (!$superAdmin) { // No View Access check for Super Administrators
 	$query->where('access IN ('.$groupsIN.')'); //@todo use trash state: published=-2
 }
 */
+
 // Select only galleries from what user wants
 if ($galleryselection) {
 	$query->where('gallery_id IN ('.$galleryselection.')');
 }
 $query->order('date DESC');
 $database->setQuery($query,0,$count);	//$count is the number of results to return
+
 $latestImages = $database->loadAssocList();
 if(!$latestImages){
 	// Error handling
@@ -175,56 +178,9 @@ if(!$latestImages){
 	// enque message
 }
 
-// ****************** Query - end ***************************************
+//--- Output ------------------------------------------------------------------
 
-// ****************** Output *********************************************
 // Let's display what we've gathered: get the layout
 require JModuleHelper::getLayoutPath('mod_rsgallery2_latest_images', $params->get('layout', 'default'));
-// ****************** Output - end ***************************************
 
 
-// Get RSGallery2 Itemid from first component menu item for use in links
-function Rsg2MenuId ()
-{
-    $RSG2MenuId = Null;
-
-    $database = JFactory::getDbo();
-    $query = $database->getQuery(true);
-    $query->select('id');
-    $query->from('#__menu');
-    $query->where('published = 1');
-    $query->where("link like 'index.php?option=com_rsgallery2%'");
-    $query->order('link');
-    $database->setQuery($query);
-    $RSG2ItemidObj = $database->loadObjectList();
-    if (count($RSG2ItemidObj) > 0) {
-        //$RSG2Itemid = $RSG2ItemidObj[0]->id;
-        $RSG2MenuId = $RSG2ItemidObj[0]->id;
-    }
-
-    return $RSG2MenuId;
-}
-
-
-/* test 01 */
-function Rsg2MenuIdTmp ()
-{
-//------------------------------------------------------------------------
-    $db =& JFactory::getDBO();
-    $lang =& JFactory::getLanguage()->getTag();
-    $uri = 'index.php?option=com_search&view=search';
-
-    $db->setQuery('SELECT id FROM #__menu WHERE link LIKE ' . $db->Quote($uri . '%') . ' AND language=' . $db->Quote($lang) . ' LIMIT 1');
-
-    $itemId = ($db->getErrorNum()) ? 0 : intval($db->loadResult());
-//------------------------------------------------------------------------
-    $db = JFactory::getDBO();
-    $defaultRedirect = 'index.php?option=com_myapp&view=cpanel';
-    $db->setQuery('SELECT `id` FROM #__menu WHERE `link` LIKE ' . $db->Quote($defaultRedirect) . ' LIMIT 1');
-    $itemId = ($db->getErrorNum()) ? 0 : intval($db->loadResult());
-    if ($itemId) {
-        $rpath = JRequest::getString('return', base64_encode(JRoute::_('index.php?Itemid=' . $itemId)));
-    } else {
-        $rpath = JRequest::getString('return', base64_encode(JRoute::_('index.php?option=com_myapp&view=cpanel')));
-    }
-}

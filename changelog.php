@@ -24,9 +24,13 @@ Legend:
 
 ---------------- Recent ----------------
 
+---------------- 2015-08-23 whazzup V4.0.3 -------------
++ Added link from image to parent gallery (Set in config)
++ Added link from image to gallery single image view (Set in config)
+
 ---------------- 2015-08-20 whazzup -------------
-+ <A> link containing the image may lead to the parent gallery
-  when image is clicked. It can be selected in config 
++ <A> Link containing the image may lead to the parent gallery
+  when imin conage is clicked. It can be selected in config 
 
 ---------------- 3.0.1 -- SVN 1099 -- 2012-10-05 -------------
 + User can specify galleries to show and can choose if their sub-galleries will 

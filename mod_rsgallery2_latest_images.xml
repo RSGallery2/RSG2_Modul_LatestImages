@@ -7,7 +7,7 @@
 	<license>This component is released under the GNU/GPL License</license>
     <authorEmail>team@rsgallery2.nl</authorEmail>
     <authorUrl>www.rsgallery2.nl</authorUrl>
-    <version>4.0.2</version>
+    <version>4.0.3</version>
     <description>MOD_RSGALLERY2_LATEST_IMAGES_DESC</description>
 	
 	<files>
@@ -75,15 +75,21 @@
 				</field>
 				
 				<field name="filteringspacer2" type="spacer" hr="true" />
+
 				<field name="link2gallery" type="radio" default="0" label="MOD_RSGALLERY2_LATEST_IMAGES_LINK_2_GALLERY" description="MOD_RSGALLERY2_LATEST_IMAGES_LINK_2_GALLERY_DESC">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
+
 				<field name="link2gallerysingleimage" type="radio" default="0" label="MOD_RSGALLERY2_LATEST_IMAGES_LINK_2_GALLERY_2_SINGLE_IMAGE" description="MOD_RSGALLERY2_LATEST_IMAGES_LINK_2_GALLERY_2_SINGLE_IMAGE_DESC">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-					
+
+
+
+
+
 				<field name="filteringspacer3" type="spacer" hr="true" />
 			</fieldset>			
 			<fieldset

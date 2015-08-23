@@ -34,54 +34,22 @@ defined('_JEXEC') or die();
 				// Click on image shall lead to gallery view
 				if ($IsLink2Gallery)
 				{
+                    $url = '';
+
 					//--- Link to gallery all images table view ------------
 					if (!$IsLink2GallerySingleImage)
 					{
-						//index.php/bildergallerie/gallery/88/itemPage/41
-						$HTML .= '<a href="';
-							//.JRoute::_('index.php?option=com_rsgallery2&Itemid='.$RSG2Itemid.'&id='.$row->id
-							// .'&catid='.$row->gallery_id);
-
-//                        $HTML .= JRoute::_('index.php?option=com_rsgallery2'
-//                        $HTML .= JRoute::_('index.php?option=com_rsgallery2&page=itemPage'
-						$HTML .= JRoute::_('index.php?option=com_rsgallery2'
-							. '&Itemid='.$RSG2MenuId
-//                            . '&rsgOption="gallery"'
-							. '&catid=' . $image['gallery_id']
-//                            . '&id=' . $image['id']
-// ok                            . '/itemPage=' . $image['id']
-                            . '/itemPage/' . ($image['ordering'] -1)
-                        );
-						
-						$HTML .= '">';  // ToDo: Title ...
-
-//                        echo '<br>(1)\$HTML: "'.htmlentities($HTML).'"<br> ';
+                        // Required: similar to index.php/gallery-menu-name/gallery/88/itemPage/41
+                        $url = $Rsg2ImageRoutes->Link2ParentGallery ($image['gallery_id'], ($image['ordering'] -1));
                     }
 					else
 					{
 						//--- Link to gallery single image view --------------
-
-						//index.php/bildergallerie/gallery/88/itemPage/54/asInline
-						$HTML .= '<a href="';
-							// JRoute::_('index.php?option=com_rsgallery2&page=inline&Itemid='.$RSG2Itemid.
-							// '&id='.$row->id.'&catid='.$row->gallery_id.'&limitstart='.$limitstart);
-
-                        $HTML .= JRoute::_('index.php?option=com_rsgallery2'
-                            . '&Itemid='.$RSG2MenuId
-                            . '&id=' . $image['id']
-                            . '&catid=' . $image['gallery_id']
-                        );
-/* same as above
-                        $HTML .= JRoute::_('index.php?option=com_rsgallery2&page=inline'
-							. '&Itemid='.$RSG2MenuId
-							. '&id=' . $image['id']
-							. '&catid=' . $image['gallery_id']
-						);
-*/
-						$HTML .= '">';  // ToDo: Title ...
-
-//                        echo '<br>(2)\$HTML: '.htmlentities($HTML).' <br> ';
+                        // Required: index.php/gallery-menu-name/gallery/88/itemPage/54/asInline
+                        $url = $Rsg2ImageRoutes->Link2GallerySingleImageView ($image['gallery_id'], $image['id']);
 					}
+
+                    $HTML .= '<a href="'.JRoute::_($url).'">';  // ToDo: Title ...
 				}
 				
 				// Create HTML for image: get the url (with/without watermark) with img attribs
