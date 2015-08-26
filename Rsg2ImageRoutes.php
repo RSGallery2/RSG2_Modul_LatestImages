@@ -139,6 +139,36 @@ class Rsg2ImageRoutes
         return $url;
     }
 
+    /**
+     * Link to gallery single image view
+     * @param int $GalleryId parent gallery id of image
+     * @return string link for Jroute
+     */
+    public function Link2GallerySlideshowView ($GalleryId)
+    {
+        $url = '';
+
+        // Joomla gallery menu part
+        if ($this->RSG2MenuId == Null)
+        {
+            $this->getRsg2MenuId ();
+        }
+
+        $url = 'index.php?option=com_rsgallery2'
+            . '&Itemid='.$this->RSG2MenuId
+            . '&catid=' . $GalleryId
+            . '/asSlideshow'
+        ;
+
+        return $url;
+    }
+
+    /*
+http://localhost/joomla3x/images/rsgallery/display/DSC_0849.jpg.jpg
+http://localhost/joomla3x/images/rsgallery/original/DSC_0849.jpg
+localhost/joomla3x/images/rsgallery//DSC_0849.jpg.jpg
+*/
+
     public function __toString()
     {
         $OutTxt = 'Rsg2ImageRoutes::$RSG2MenuId= "';

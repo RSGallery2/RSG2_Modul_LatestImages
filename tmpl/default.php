@@ -41,6 +41,7 @@ defined('_JEXEC') or die();
                         case 1: //
                             //--- Link to gallery all images table view ------------
                             $url = $Rsg2ImageRoutes->Link2ParentGallery ($image['gallery_id'], ($image['ordering'] -1));
+                            // $url = $Rsg2ImageRoutes->Link2GallerySlideshowView($image['gallery_id']);
                             break;
                         case 2:
                             //--- Link to gallery single image view --------------
