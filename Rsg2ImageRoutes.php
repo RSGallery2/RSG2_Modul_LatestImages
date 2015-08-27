@@ -163,11 +163,87 @@ class Rsg2ImageRoutes
         return $url;
     }
 
-    /*
-http://localhost/joomla3x/images/rsgallery/display/DSC_0849.jpg.jpg
-http://localhost/joomla3x/images/rsgallery/original/DSC_0849.jpg
-localhost/joomla3x/images/rsgallery//DSC_0849.jpg.jpg
-*/
+
+
+    /**
+     * Link to gallery single image view
+     * @param int $GalleryId parent gallery id of image
+     * @param int $ImageId image id
+     * @return string link for Jroute
+     */
+    public function Link2ImageOriginalSize ($GalleryId, $imagePath)
+    {
+        $url = '';
+
+        // Joomla gallery menu part
+        if ($this->RSG2MenuId == Null)
+        {
+            $this->getRsg2MenuId ();
+        }
+
+        echo ($imagePath);
+        //http://localhost/joomla3x/images/rsgallery/original/DSC_0849.jpg
+        //localhost/joomla3x/images/rsgallery//DSC_0849.jpg.jpg
+        $url = 'images/rsgallery/original/'
+            . $imagePath
+        ;
+
+
+        return $url;
+    }
+
+    /**
+     * Link to gallery single image view
+     * @param int $GalleryId parent gallery id of image
+     * @param int $ImageId image id
+     * @return string link for Jroute
+     */
+    public function Link2ImageDisplaySize ($GalleryId, $imagePath)
+    {
+        $url = '';
+
+        // Joomla gallery menu part
+        if ($this->RSG2MenuId == Null)
+        {
+            $this->getRsg2MenuId ();
+        }
+
+        //http://localhost/joomla3x/images/rsgallery/display/DSC_0849.jpg.jpg
+        $url = 'images/rsgallery/'
+            . $imagePath
+        ;
+
+
+        return $url;
+    }
+
+    /**
+     * Link to gallery single image view
+     * @param int $GalleryId parent gallery id of image
+     * @param int $ImageId image id
+     * @return string link for Jroute
+     */
+    public function Link2ImageThumbSize ($imagePath)
+    {
+        $url = '';
+
+        // Joomla gallery menu part
+        if ($this->RSG2MenuId == Null)
+        {
+            $this->getRsg2MenuId ();
+        }
+
+        //http://localhost/joomla3x/images/rsgallery/thumb/DSC_0849.jpg.jpg
+        $url = 'images/rsgallery/thumb/'
+            . $imagePath
+        ;
+
+        return $url;
+    }
+
+
+
+
 
     public function __toString()
     {
