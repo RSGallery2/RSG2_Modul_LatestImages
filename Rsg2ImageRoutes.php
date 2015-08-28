@@ -171,7 +171,7 @@ class Rsg2ImageRoutes
      * @param int $ImageId image id
      * @return string link for Jroute
      */
-    public function Link2ImageOriginalSize ($GalleryId, $imagePath)
+    public function Link2ImageOriginalSize ($GalleryId, $imageName)
     {
         $url = '';
 
@@ -181,11 +181,11 @@ class Rsg2ImageRoutes
             $this->getRsg2MenuId ();
         }
 
-        echo ($imagePath);
+        // echo ($imageName);
         //http://localhost/joomla3x/images/rsgallery/original/DSC_0849.jpg
         //localhost/joomla3x/images/rsgallery//DSC_0849.jpg.jpg
         $url = 'images/rsgallery/original/'
-            . $imagePath
+            . $imageName
         ;
 
 
@@ -198,7 +198,7 @@ class Rsg2ImageRoutes
      * @param int $ImageId image id
      * @return string link for Jroute
      */
-    public function Link2ImageDisplaySize ($GalleryId, $imagePath)
+    public function Link2ImageDisplaySize ($GalleryId, $imageName)
     {
         $url = '';
 
@@ -209,8 +209,9 @@ class Rsg2ImageRoutes
         }
 
         //http://localhost/joomla3x/images/rsgallery/display/DSC_0849.jpg.jpg
-        $url = 'images/rsgallery/'
-            . $imagePath
+        $url = 'images/rsgallery/display/'
+            . $imageName
+            . ".jpg"
         ;
 
 
@@ -223,7 +224,7 @@ class Rsg2ImageRoutes
      * @param int $ImageId image id
      * @return string link for Jroute
      */
-    public function Link2ImageThumbSize ($imagePath)
+    public function Link2ImageThumbSize ($imageName)
     {
         $url = '';
 
@@ -235,7 +236,8 @@ class Rsg2ImageRoutes
 
         //http://localhost/joomla3x/images/rsgallery/thumb/DSC_0849.jpg.jpg
         $url = 'images/rsgallery/thumb/'
-            . $imagePath
+            . $imageName
+            . ".jpg"
         ;
 
         return $url;

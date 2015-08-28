@@ -31,21 +31,31 @@ defined('_JEXEC') or die();
 				// Get the name of the item to show
 				$itemName = $image['name'];
 
-				// Click on image shall lead to gallery view
+				// Click on image shall link to a destinations
 				if ($ImageLinkType > 0)
 				{
                     $url = '';
-
+                    // destination ?
+                    // echo "\$ImageLinkType".$ImageLinkType;
                     switch ($ImageLinkType)
                     {
-                        case 1: //
-                            //--- Link to gallery all images table view ------------
+                        case 1: // Link to gallery all images table view
                             $url = $Rsg2ImageRoutes->Link2ParentGallery ($image['gallery_id'], ($image['ordering'] -1));
-                            // $url = $Rsg2ImageRoutes->Link2GallerySlideshowView($image['gallery_id']);
                             break;
-                        case 2:
-                            //--- Link to gallery single image view --------------
+                        case 2: // Link to gallery single image view
                             $url = $Rsg2ImageRoutes->Link2GallerySingleImageView ($image['gallery_id'], $image['id']);
+                            break;
+                        case 3: // Link to gallery slide show
+                            $url = $Rsg2ImageRoutes->Link2GallerySlideshowView($image['gallery_id']);
+                            break;
+                        case 4: // Link to image original size
+                            $url = $Rsg2ImageRoutes->Link2ImageOriginalSize ($image['gallery_id'], $image['name']);
+                            break;
+                        case 5: // Link to image display size
+                            $url = $Rsg2ImageRoutes->Link2ImageDisplaySize ($image['gallery_id'], $image['name']);
+                            break;
+                        case 6: // Link to image thumb size
+                            $url = $Rsg2ImageRoutes->Link2ImageThumbSize ($image['gallery_id'], $image['name']);
                             break;
                     }
 
