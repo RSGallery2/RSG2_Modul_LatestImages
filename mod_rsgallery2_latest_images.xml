@@ -12,6 +12,7 @@
 	
 	<files>
 		<filename module="mod_rsgallery2_latest_images">mod_rsgallery2_latest_images.php</filename>
+		<filename module="mod_rsgallery2_latest_images">Rsg2ImageRoutes.php.php</filename>
 		<filename>index.html</filename>
 		<folder>css</folder>
 		<folder>images</folder>

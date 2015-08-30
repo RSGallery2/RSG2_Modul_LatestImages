@@ -8,6 +8,10 @@
 * @version 4.0.5
 **/
 
+// ToDo: Regard user privacy: show only images for gallery owner or common released ....
+
+
+
 defined('_JEXEC') or die();
 
 // returns links to be used in Jroute() to images views inside galleries
@@ -150,6 +154,8 @@ if ($galleryids) {
 } 
 
 //--- Query latest images -----------------------------------------------------
+
+// ToDo: Export image selection to single file (s)
 
 // Query to get limited ($count) number of latest images
 //$query = "SELECT * FROM #__rsgallery2_files $list ORDER BY date DESC LIMIT $count";
