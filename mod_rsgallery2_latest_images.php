@@ -5,7 +5,7 @@
 * Shows latest galleries from the Joomla extension RSGallery2 (www.rsgallery2.nl).
 * @copyright (C) 2012-2015 RSGallery2 Team
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
-* @version 4.0.5
+* @version 4.0.6
 **/
 
 // ToDo: Regard user privacy: show only images for gallery owner or common released ....

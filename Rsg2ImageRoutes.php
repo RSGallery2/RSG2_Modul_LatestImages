@@ -6,7 +6,7 @@
  * Example: image from latest image view need <A> link to parent gallery
  * @copyright (C) 2015 RSGallery2 Team
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
- * @version 4.0.2
+ * @version 4.0.6
  */
 class Rsg2ImageRoutes
 {

@@ -24,12 +24,15 @@ Legend:
 
 ---------------- Recent ----------------
 
+---------------- 2015-08-31 whazzup V4.0.6 -------------
+# Added missing file Rsg2ImageRoutes.php in *.xml 
+
 ---------------- 2015-08-28 whazzup V4.0.5 -------------
-+ Changed selection of image link type: 
++ Changed possible selections for image link type: 
   Added link selection to 
   * original image
   * rsgallery2 display size image 
-  * rsgallery2 thumb size image (Not that useful though :-))
+  * rsgallery2 thumb size image (Not that this is useful though :-))
 
 ---------------- 2015-08-23 whazzup V4.0.4 -------------
 + Changed selection of image link type to list.
