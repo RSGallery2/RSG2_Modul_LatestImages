@@ -25,28 +25,28 @@ The RSGallery2 Module LatestImages shows as the name suggests the latest images 
 
 ##Parameter in backend
 
-`Number of rows: Number of rows of images`
-`Number of rows: Number of rows of images`  
-`Number of columns: Images per row`  
-`Number of images : Count is the result from row number times column number`  
-`...     Count image names are fetched from the Database and prepared for the display`  
-`Select galleries to show images from: `
+**`Number of rows: `** Number of vertical images  
+**`Number of rows: `** Number of horizontal images  
+**`Number of columns: `**  Images per row  
+**`Number of images : `** Count is the result from row number times column number  
+...     Count image names are fetched from the Database and prepared for the display  
+**`Select galleries to show images from: `**
 Examples: 
 
 ....
 
 
-` Include subgalleries: (No/Yes)`  
-` Display type of image to show`  
-` Set size of image, use one (!) of these to make the image smaller`  
-` CSS img element height parameter`  
-` CSS img element width parameter`  
-` Set size of div, use this to crop the image`  
-` CSS div element height parameter`  
-` CSS div element width parameter`   
-` Set size of div with the name of the image`  
-` CSS div element height parameter for name of image`  
-` Display image name: (No/Yes)`  
-` Display date: (No/Yes)`  
-` Date format`  
-` Link image to view type`  
+**`Include subgalleries: `** (No/Yes)  
+**`Display type of image to show: `**  
+**`Set size of image, use one (!) of these to make the image smaller: `**  
+**`CSS img element height parameter: `**  
+**`CSS img element width parameter: `**  
+**`Set size of div, use this to crop the image: `**  
+**`CSS div element height parameter: `**  
+**`CSS div element width parameter: `**   
+**`Set size of div with the name of the image: **`  
+**`CSS div element height parameter for name of image: `**  
+**`Display image name: `** (No/Yes)  
+**`Display date:`** (No/Yes)  
+**`Date format: `**  
+**`Link image to view type: `**  
