@@ -30,7 +30,7 @@ The RSGallery2 Module LatestImages shows as the name suggests the latest images 
 The number of displayed images is the result from Count = row number times column number. Therefore Count image names are fetched from the Database and prepared for the display  
 **`Select galleries to show images from: `** e.g. 3,8,42. The used galleries may be restricted to a selction. Please use a comma seperated list  
 **`Include subgalleries: `** (No/Yes)  When the range of galleries is limited by user input (see above) the child galleries may be included in the image search  
-**`Display type of image to show: `**  
+**`Display type of image to show: `**  RSGallery2 stores the original (depending on settings), a display sized image and a thumbnail sized image. User can select which display type is to be used.
 **`CSS img element height parameter: `**  
 **`CSS img element width parameter: `**  
 Set size of image, use one (!) of these to make the image smaller  
