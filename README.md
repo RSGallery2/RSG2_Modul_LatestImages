@@ -25,25 +25,18 @@ The RSGallery2 Module LatestImages shows as the name suggests the latest images 
 
 ##Parameter in backend
 
-**`Number of rows: `** Number of vertical images  
-**`Number of rows: `** Number of horizontal images  
-**`Number of columns: `**  Images per row  
-**`Number of images : `** Count is the result from row number times column number  
-...     Count image names are fetched from the Database and prepared for the display  
-**`Select galleries to show images from: `**
-Examples: 
-
-....
-
-
-**`Include subgalleries: `** (No/Yes)  
+**`Number of rows: `** Number of vertical images  (Images per column)  
+**`Number of columns: `** Number of horizontal images (Images per row)  
+The number of displayed images is the result from Count = row number times column number. Therefore Count image names are fetched from the Database and prepared for the display  
+**`Select galleries to show images from: `** e.g. 3,8,42. The used galleries may be restricted to a selction. Please use a comma seperated list  
+**`Include subgalleries: `** (No/Yes)  When the range of galleries is limited by user input (see above) the child galleries may be included in the image search  
 **`Display type of image to show: `**  
-**`Set size of image, use one (!) of these to make the image smaller: `**  
 **`CSS img element height parameter: `**  
 **`CSS img element width parameter: `**  
-**`Set size of div, use this to crop the image: `**  
+Set size of image, use one (!) of these to make the image smaller  
 **`CSS div element height parameter: `**  
 **`CSS div element width parameter: `**   
+Set size of div, use this to crop the image  
 **`Set size of div with the name of the image: **`  
 **`CSS div element height parameter for name of image: `**  
 **`Display image name: `** (No/Yes)  
