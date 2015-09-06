@@ -7,14 +7,14 @@ The RSGallery2 Module LatestImages shows as the name suggests the latest images 
 * The display width of the image and the surrounding Div may be set.
 * The name of the gallery and the date of the image may be displayed.
 
-* A click on the image may lead to 
-    * The parent gallery 
+* A click on the image may lead to
+  * The parent gallery
 	* Gallery single image view.
 	* Gallery slideshow view
 	* Original image
 	* Gallery display image
 	* Gallery thumb image
-	
+
 ##General
  * User defined count images are selected and shown like in the RSGallery2 gallery view.
  * The images may be aligned in row and columns.
@@ -36,12 +36,12 @@ The number of displayed images is the result from Count = row number times colum
 CSS width attribute for the img and the div element (0=no attribute)
 Set size of image, use one (!) of height or width to make the image smaller. Set one or both settings for image height and width to 0, this will keep the aspect ratio of the image, if you set a size for both the image will be stretched. Do not set the size larger than the actual image size, e.g. when a thumb size image has a size of 50x50 pixels, don't set either size to larger than 50, rather use the larger display or the original image
 * **CSS div element height parameter:** Set size of div, use this to crop the image. Enter the size of the CSS height attribute of the div that holds the image in pixels. This will crop the image. If '0' is entered there won't be a height specified for the div element and it will fit the actual height of the image  
-* **CSS div element width parameter:** Set size of div, use this to crop the image. Enter the size of the CSS width attribute of the div that holds the image in pixels. This will crop the image. If '0' is entered there won't be a width specified for the div element and it will fit the actual width of the image 
+* **CSS div element width parameter:** Set size of div, use this to crop the image. Enter the size of the CSS width attribute of the div that holds the image in pixels. This will crop the image. If '0' is entered there won't be a width specified for the div element and it will fit the actual width of the image
 * **CSS div element height parameter for name of image:** CSS div element height parameter for name of image. Enter the size of the CSS height attribute of the dive that holds the name of the image, in pixels. If '0' is entered there won't be a height specified for the div element.<br />There is no width parameter to set the width of this div element since the width of the 'CSS div element width parameter' would overrule this   
 * **Display image name:** (No/Yes) Do display image name below the image   
 * **Display date:** (No/Yes) Do display image date below the image
-* **Date format:** Select format type the date should display (for example, d-m-Y | d/m/Y | m-d-Y : G-i). See http://nl3.php.net/date for more info about this. 
-* **Link image to view type**  A click on the image shall link to the selected type. Single image/gallery view: The display area will be found in the first jooomla menu linking to RSGallery 2 galleries
+* **Date format:** Select format type the date should display (for example, d-m-Y | d/m/Y | m-d-Y : G-i). See http://nl3.php.net/date for more info about this.
+* **Link image to view type**  A click on the image shall link to the selected type. Single image/gallery view: The display area will be found in the first joomla menu linking to RSGallery 2 galleries
 Possible options  
    * Don't link image to anything  
    * Link to standard gallery view  
