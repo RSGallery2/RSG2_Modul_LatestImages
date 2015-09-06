@@ -11,6 +11,7 @@
     <description>MOD_RSGALLERY2_LATEST_IMAGES_DESC</description>
 	
 	<files>
+		<filename>mod_rsgallery2_latest_images.xml</filename>
 		<filename module="mod_rsgallery2_latest_images">mod_rsgallery2_latest_images.php</filename>
 		<filename module="mod_rsgallery2_latest_images">Rsg2ImageRoutes.php.php</filename>
 		<filename>index.html</filename>
@@ -22,6 +23,8 @@
     <languages>
         <language tag="en-GB">language/en-GB/en-GB.mod_rsgallery2_latest_images.ini</language>
 		<language tag="en-GB">language/en-GB/en-GB.mod_rsgallery2_latest_images.sys.ini</language>
+        <language tag="de-DE">language/de-DE/de-DE.mod_rsgallery2_latest_images.ini</language>
+		<language tag="de-DE">language/de-DE/de-DE.mod_rsgallery2_latest_images.sys.ini</language>
     </languages>
 
 	<config>
