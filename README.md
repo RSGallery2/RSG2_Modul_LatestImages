@@ -33,7 +33,7 @@ The number of displayed images is the result from Count = row number times colum
 * **Display type of image to show:**  RSGallery2 stores the original (depending on settings), a display sized image and a thumbnail sized image. User can select which display type is to be used.
 * **CSS img element height parameter:**  Enter the size of the CSS height attribute of the image to show in pixels. If '0' is entered there won't be a height specified for img element and the actual height of the image will be taken.  
 * **CSS img element width parameter:** Enter the size of the CSS width attribute of the image to show in pixels. If '0' is entered there won't be a width specified for img element and the actual width of the image will be taken  
-CSS width attribute for the image and the div element (0=no attribute)
+CSS width attribute for the img and the div element (0=no attribute)
 Set size of image, use one (!) of height or width to make the image smaller. Set one or both settings for image height and width to 0, this will keep the aspect ratio of the image, if you set a size for both the image will be stretched. Do not set the size larger than the actual image size, e.g. when a thumb size image has a size of 50x50 pixels, don't set either size to larger than 50, rather use the larger display or the original image
 * **CSS div element height parameter:** Set size of div, use this to crop the image. Enter the size of the CSS height attribute of the div that holds the image in pixels. This will crop the image. If '0' is entered there won't be a height specified for the div element and it will fit the actual height of the image  
 * **CSS div element width parameter:** Set size of div, use this to crop the image. Enter the size of the CSS width attribute of the div that holds the image in pixels. This will crop the image. If '0' is entered there won't be a width specified for the div element and it will fit the actual width of the image
@@ -41,7 +41,7 @@ Set size of image, use one (!) of height or width to make the image smaller. Set
 * **Display image name:** (No/Yes) Do display image name below the image   
 * **Display date:** (No/Yes) Do display image date below the image
 * **Date format:** Select format type the date should display (for example, d-m-Y | d/m/Y | m-d-Y : G-i). See http://nl3.php.net/date for more info about this.
-* **Link image to view type**  A click on the image shall link to the selected type. Single image/gallery view: The display area will be found in the first joomla menu linking to RSGallery2 galleries
+* **Link image to view type**  A click on the image shall link to the selected type. Single image/gallery view: The display area will be found in the first joomla menu linking to RSGallery2 galleries	
 Possible options  
    * Don't link image to anything  
    * Link to standard gallery view  
