@@ -41,7 +41,7 @@ Set size of image, use one (!) of height or width to make the image smaller. Set
 * **Display image name:** (No/Yes) Do display image name below the image   
 * **Display date:** (No/Yes) Do display image date below the image
 * **Date format:** Select format type the date should display (for example, d-m-Y | d/m/Y | m-d-Y : G-i). See http://nl3.php.net/date for more info about this.
-* **Link image to view type**  A click on the image shall link to the selected type. Single image/gallery view: The display area will be found in the first joomla menu linking to RSGallery 2 galleries
+* **Link image to view type**  A click on the image shall link to the selected type. Single image/gallery view: The display area will be found in the first joomla menu linking to RSGallery2 galleries
 Possible options  
    * Don't link image to anything  
    * Link to standard gallery view  
