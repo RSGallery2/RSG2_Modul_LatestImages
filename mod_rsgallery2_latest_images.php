@@ -76,11 +76,9 @@ if (($divNameHeight)) {
 	//if ($divNameWidth > 0)  $divNameAttributes .= 'width:'.$divNameWidth.'px;';// The width setting of the class mod_rsgallery2_latest_galleries_attibute would overrule this, so makes no sense to do this now?
 	$divAttributes .= '"';
 }
-//--- Collect CSS styling from parameters - end -------------------------------
 
-// Get RSGallery2 Itemid from first component menu item for use in links
-//$RSG2MenuId = Rsg2ImageRoutes::Rsg2MenuId();
-// for links: create jroute(s) class functions to different image views
+//--- Image links preparation -------------------------------------------
+
 $Rsg2ImageRoutes = new Rsg2ImageRoutes ();
 
 //--- Take View Access into account -------------------------------------------
