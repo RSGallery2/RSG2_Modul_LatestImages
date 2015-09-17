@@ -165,7 +165,7 @@ if (!$superAdmin) { // No View Access check for Super Administrators
 */
 
 // Query to get limited ($count) number of latest images
-$latestImages = $Rsg2DbSelections->LatestImagesLimited ($Count, $gallerySelection)
+$latestImages = $Rsg2DbSelections->LatestImagesLimited ($count, $gallerySelection);
 if(!$latestImages){
 	// Error handling
 	// ToDo: Ask module admin if a message is required (?debug) and to provide this error message

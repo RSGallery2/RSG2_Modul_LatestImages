@@ -13,14 +13,14 @@ defined('_JEXEC') or die();
 	<table class="mod_rsgallery2_latest_images_table" >
 		<?php 
 		$item = 0;
-		for ($row = 1; $row <= $countrows; $row++) {
+		for ($row = 1; $row <= $countRows; $row++) {
 			// If there still is am image to show, start a new row
 			if (!isset($latestImages[$item])) {
 				continue;
 			}
 			
 			echo '<tr>';
-			for ($column = 1; $column <= $countcolumns; $column++) {
+			for ($column = 1; $column <= $countColumns; $column++) {
                 $HTML = '';
 				echo '<td>';
 				// If there still is a gallery image to show, show it, otherwise, continue
@@ -63,12 +63,12 @@ defined('_JEXEC') or die();
 				}
 				
 				// Create HTML for image: get the url (with/without watermark) with img attribs
-				if ($displaytype == 1) {
+				if ($displayType == 1) {
 					// *** display ***: 
 					$watermark = $rsgConfig->get('watermark');
 					$imageUrl = $watermark ? waterMarker::showMarkedImage( $itemName ) : imgUtils::getImgDisplay( $itemName );
 					$HTML .= '<img class="rsg2-displayImage" src="'.$imageUrl.'" alt="'.$itemName.'" title="'.$itemName.'" '.$imgAttributes.'/>';
-				} elseif ($displaytype == 2) {
+				} elseif ($displayType == 2) {
 					// *** original ***
 					$watermark = $rsgConfig->get('watermark');
 					$imageOriginalUrl = $watermark ? waterMarker::showMarkedImage( $itemName, 'original' ) : imgUtils::getImgOriginal( $itemName );
@@ -97,17 +97,17 @@ defined('_JEXEC') or die();
 					
 					<div style="clear:both;"></div>
                 <?php
-					if ($displayname) {
+					if ($displayName) {
 				?>
 						<div class="mod_rsgallery2_latest_images_name" <?php echo $divNameAttributes;?>>
 							<?php echo $name;?>
 						</div>
 				<?php
 					}
-					if ($displaydate) {
+					if ($displayDate) {
 				?>
 						<div class="mod_rsgallery2_latest_images_date">
-							<?php echo date($dateformat,strtotime($date));  ?>
+							<?php echo date($dateFormat,strtotime($date));  ?>
 						</div>
 				<?php
 					}
