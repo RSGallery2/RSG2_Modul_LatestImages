@@ -81,8 +81,7 @@ if (($divNameHeight)) {
 	$divAttributes .= '"';
 }
 
-
-//--- Image links preparation -------------------------------------------
+//--- Db image selections preparation -------------------------------------------
 
 $Rsg2DbSelections = new Rsg2DbSelections ();
 
@@ -121,7 +120,7 @@ if ($galleryIds) {
 			}
 		}
         
-		// Function to build children trre list 
+		// Function to build children tree list 
 		function treerecurse($ParentId,  $list, &$children, $maxlevel=20, $level=0) {
 			// if there are children for this id and the max.level isn't reached
 			if (@$children[$ParentId] && $level <= $maxlevel) {
@@ -165,8 +164,8 @@ if (!$superAdmin) { // No View Access check for Super Administrators
 */
 
 // Query to get limited ($count) number of latest images
-$latestImages = $Rsg2DbSelections->LatestImagesLimited ($count, $gallerySelection);
-if(!$latestImages){
+$ImageNames = $Rsg2DbSelections->LatestImagesLimited ($count, $gallerySelection);
+if(!$ImageNames){
 	// Error handling
 	// ToDo: Ask module admin if a message is required (?debug) and to provide this error message
 	// enque message
