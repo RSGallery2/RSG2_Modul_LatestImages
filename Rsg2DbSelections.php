@@ -11,6 +11,7 @@ class Rsg2DbSelections
 {	
 	/**
 	* Get a list of all galleries (id/parent) ordered by parent/ordering
+     * @return array of id/parent associations
 	*/
     public function ListOfAllGalleriesOrdered ()
     {
@@ -28,6 +29,9 @@ class Rsg2DbSelections
 	/**
 	* Get limited ($count) number of latest images
 	* if $gallerySelection is given only requested galleries will be returned
+     * @param int $count Restricts size of returned array
+     * @param string $gallerySelection defines gallery ids to use. Example "2,3"
+     * @return array of db image items
 	*/
     public function LatestImagesLimited ($count=0, $gallerySelection=null)
     {

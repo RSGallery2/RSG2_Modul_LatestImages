@@ -97,6 +97,7 @@
 
 				<field name="filteringspacer3" type="spacer" hr="true" />
 			</fieldset>			
+			
 			<fieldset
 				name="advanced">
 				<field

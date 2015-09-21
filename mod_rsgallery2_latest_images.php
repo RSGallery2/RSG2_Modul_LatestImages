@@ -22,7 +22,7 @@ require_once dirname(__FILE__) . '/Rsg2ImageRoutes.php';
 
 // Initialise RSGallery2 and other variables
 require_once(JPATH_BASE.'/administrator/components/com_rsgallery2/init.rsgallery2.php');
-$database = JFactory::getDbo();
+//$database = JFactory::getDbo();
 
 // Add styling
 $document = JFactory::getDocument();
@@ -164,11 +164,11 @@ if (!$superAdmin) { // No View Access check for Super Administrators
 */
 
 // Query to get limited ($count) number of latest images
-$ImageNames = $Rsg2DbSelections->LatestImagesLimited ($count, $gallerySelection);
-if(!$ImageNames){
+$latestImages = $Rsg2DbSelections->LatestImagesLimited ($count, $gallerySelection);
+if(!$latestImages){
 	// Error handling
-	// ToDo: Ask module admin if a message is required (?debug) and to provide this error message
-	// enque message
+	// ToDo: Ask module administrator if a message is required (?debug) and to provide this error message
+	// enqueue message
 }
 
 //--- Output ------------------------------------------------------------------

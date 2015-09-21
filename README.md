@@ -1,5 +1,5 @@
 # RSG2_Modul_LatestImages
-The RSGallery2 Module LatestImages shows as the name suggests the latest images from RSGallery2 gallery.
+The RSGallery2 Module LatestImages shows as the name suggests the latest images from RSGallery2 galleries.
 
 * The images are shown in a table view. The number of rows and columns define the the number of shown images.
 * The administrator can specify certain galleries as source for the images to show. Sub galleries may be included.
