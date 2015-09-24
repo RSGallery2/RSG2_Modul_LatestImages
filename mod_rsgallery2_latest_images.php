@@ -1,15 +1,14 @@
 <?php
 
 /**
-* RSGallery2 latest galleries module:
-* Shows latest galleries from the Joomla extension RSGallery2 (www.rsgallery2.nl).
+* RSGallery2 latest images module:
+* Shows latest images from the Joomla extension RSGallery2 (www.rsgallery2.nl).
 * @copyright (C) 2012-2015 RSGallery2 Team
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
 * @version 4.0.7
 **/
 
 // ToDo: Regard user privacy: show only images for gallery owner or common released ....
-
 
 
 defined('_JEXEC') or die();
@@ -32,7 +31,7 @@ $document->addStyleSheet($url);
 global $rsgConfig;
 
 //--- Parameters --------------------------------------------------------------
-// Number of  latest galleries to display = number of rows times the number of columns
+// Number of  latest images to display = number of rows times the number of columns
 $countRows			= (int) $params->get('countrows', 		'1');
 $countColumns		= (int) $params->get('countcolumns',	'1');
 $count				= $countRows * $countColumns;
