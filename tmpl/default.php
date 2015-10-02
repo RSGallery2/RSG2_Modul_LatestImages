@@ -32,7 +32,7 @@ defined('_JEXEC') or die();
 				// Get the name of the item to show
 				$ItemIdxName = $image['name'];
 
-				// Click on image shall link to a destinations
+				// Click on image shall link to a destination
 				if ($ImageLinkType > 0)
 				{
                     $url = '';

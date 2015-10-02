@@ -55,8 +55,7 @@ $displayDate 		= $params->get('displaydate', 			'0');
 $dateFormat 		= $params->get('dateformat', 			'd-m-Y');
 $ImageLinkType      = $params->get('imagelinktype', 		'0');
 
-//$IsLink2Gallery     = $params->get('link2gallery', 			'0');
-//$IsLink2GallerySingleImage 	= $params->get('link2gallerysingleimage',   '0');
+$layout             = $params->get('layout',                 'default');
 
 //--- Collect CSS styling from parameters -------------------------------
 // Get CSS image height/width attributes
@@ -173,6 +172,6 @@ if(!$latestImages){
 //--- Output ------------------------------------------------------------------
 
 // Let's display what we've gathered: get the layout
-require JModuleHelper::getLayoutPath('mod_rsgallery2_latest_images', $params->get('layout', 'default'));
+require JModuleHelper::getLayoutPath('mod_rsgallery2_latest_images', $layout);
 
 
