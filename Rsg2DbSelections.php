@@ -28,7 +28,7 @@ class Rsg2DbSelections
 	
 	/**
 	* Get limited ($count) number of latest images
-	* if $gallerySelection is given only requested galleries will be returned
+	* if $gallerySelection is set then only requested galleries will be returned
      * @param int $count Restricts size of returned array
      * @param string $gallerySelection defines gallery ids to use. Example "2,3"
      * @return array of db image items
@@ -53,6 +53,7 @@ class Rsg2DbSelections
 		if ($gallerySelection) {
 			$query->where('gallery_id IN ('.$gallerySelection.')');
 		}
+		
 		$query->order('date DESC');
 		$database->setQuery($query,0,$count);	//$count is the number of results to return
 
