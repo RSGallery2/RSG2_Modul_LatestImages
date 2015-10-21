@@ -33,7 +33,7 @@ class Rsg2DbSelections
      * @param string $gallerySelection defines gallery ids to use. Example "2,3"
      * @return array of db image items
 	*/
-    public function LatestImagesLimited ($count=0, $gallerySelection=null)
+    public function LatestImagesLimited ($count=0, $gallerySelection="")
     {
 		$database = JFactory::getDBO();
 		$query = $database->getQuery(true);
