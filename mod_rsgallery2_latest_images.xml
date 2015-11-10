@@ -39,7 +39,7 @@
 				<field name="filteringspacer3" type="spacer" hr="true" />
 				
 				<field name="galleryids" type="text" default="0" label="MOD_RSGALLERY2_LATEST_IMAGES_GALLERY_IDS" description="MOD_RSGALLERY2_LATEST_IMAGES_GALLERY_IDS_DESC" />
-				<field name="includechildren" type="radio" default="0" label="MOD_RSGALLERY2_LATEST_IMAGES_INCLUDE_CHILDREN" description="MOD_RSGALLERY2_LATEST_IMAGES_INCLUDE_CHILDREN_DESC">
+				<field name="includechildren" type="radio" class="btn-group btn-group-yesno" default="0" label="MOD_RSGALLERY2_LATEST_IMAGES_INCLUDE_CHILDREN" description="MOD_RSGALLERY2_LATEST_IMAGES_INCLUDE_CHILDREN_DESC">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
@@ -73,11 +73,11 @@
 				<field name="divnameheight" type="text" default="0" label="MOD_RSGALLERY2_LATEST_IMAGES_DIVNAME_HEIGHT" description="MOD_RSGALLERY2_LATEST_IMAGES_DIVNAME_HEIGHT_DESC" />
 				<!--<field name="divnamewidth" type="text" default="0" label="MOD_RSGALLERY2_LATEST_IMAGES_DIVNAME_WIDTH" description="MOD_RSGALLERY2_LATEST_IMAGES_DIVNAME_WIDTH_DESC" />-->
 				<field name="filteringspacer4" type="spacer" hr="true" />
-				<field name="displayname" type="radio" default="1" label="MOD_RSGALLERY2_LATEST_IMAGES_DISPLAY_NAME" description="MOD_RSGALLERY2_LATEST_IMAGES_DISPLAY_NAME_DESC">
+				<field name="displayname" type="radio" class="btn-group btn-group-yesno" default="1" label="MOD_RSGALLERY2_LATEST_IMAGES_DISPLAY_NAME" description="MOD_RSGALLERY2_LATEST_IMAGES_DISPLAY_NAME_DESC">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field name="displaydate" type="radio" default="1" label="MOD_RSGALLERY2_LATEST_IMAGES_DISPLAY_DATE" description="MOD_RSGALLERY2_LATEST_IMAGES_DISPLAY_DATE_DESC">
+				<field name="displaydate" type="radio" class="btn-group btn-group-yesno" default="1" label="MOD_RSGALLERY2_LATEST_IMAGES_DISPLAY_DATE" description="MOD_RSGALLERY2_LATEST_IMAGES_DISPLAY_DATE_DESC">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
