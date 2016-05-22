@@ -67,16 +67,19 @@ defined('_JEXEC') or die();
 				if ($displayType == 1) {
 					// *** display ***: 
 					$watermark = $rsgConfig->get('watermark');
-					$imageUrl = $watermark ? waterMarker::showMarkedImage( $ItemIdxName ) : imgUtils::getImgDisplayPath( $ItemIdxName );
+					//$imageUrl = $watermark ? waterMarker::showMarkedImage( $ItemIdxName ) : imgUtils::getImgDisplayPath( $ItemIdxName );
+					$imageUrl = $watermark ? waterMarker::showMarkedImage( $ItemIdxName ) : imgUtils::getImgDisplay( $ItemIdxName );
 					$HTML .= '<img class="rsg2-displayImage" src="'.$imageUrl.'" alt="'.$ItemIdxName.'" title="'.$ItemIdxName.'" '.$imgAttributes.'/>';
 				} elseif ($displayType == 2) {
 					// *** original ***
 					$watermark = $rsgConfig->get('watermark');
-					$imageOriginalUrl = $watermark ? waterMarker::showMarkedImage( $ItemIdxName, 'original' ) : imgUtils::getImgOriginalPath( $ItemIdxName );
+					//$imageOriginalUrl = $watermark ? waterMarker::showMarkedImage( $ItemIdxName, 'original' ) : imgUtils::getImgOriginalPath( $ItemIdxName );
+					$imageOriginalUrl = $watermark ? waterMarker::showMarkedImage( $ItemIdxName, 'original' ) : imgUtils::getImgOriginal( $ItemIdxName );
 					$HTML .= '<img class="rsg2-displayImage" src="'.$imageOriginalUrl.'" alt="'.$ItemIdxName.'" title="'.$ItemIdxName.'" '.$imgAttributes.'/>';
 				} else {
 					// *** thumb ***
-					$imageThumbUrl = imgUtils::getImgThumbPath( $ItemIdxName );
+					//$imageThumbUrl = imgUtils::getImgThumbPath( $ItemIdxName );
+					$imageThumbUrl = imgUtils::getImgThumb( $ItemIdxName );
 					$HTML .= '<img class="rsg2-displayImage" src="'.$imageThumbUrl.'" alt="'.$ItemIdxName.'" title="'.$ItemIdxName.'" '.$imgAttributes.'/>';
 				}
 				$name	= $image['name'];
