@@ -24,7 +24,13 @@ Legend:
 
 ---------------- Recent ----------------
 
----------------- 2015-08-31 whazzup V4.0.6 -------------
+* --- 4.0.7 --- 2018-06-06 --- whazzup ------------------------------
+
+^ Pathes to files now written with slashes '../.../...' instead of '...' . DS . '...'
++ Added updateserver file
+
+* --- 4.0.6 --- 2015-08-31 --- whazzup ------------------------------
+
 # Added missing file Rsg2ImageRoutes.php in *.xml 
 
 ---------------- 2015-08-28 whazzup V4.0.5 -------------
