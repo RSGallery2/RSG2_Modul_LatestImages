@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <updates>
 	<update>
-		<name>RSGallery2 plugin gallery display update</name>
+		<name>RSGallery2 module latest images update</name>
 		<description>Update matching component rsgallery2 v4.4.1</description>
-		<element>com_rsgallery2</element>
-		<type>component</type>
+		<element>mod_rsgallery2_latest_images</element>
+		<type>module</type>
 		<version>4.0.7</version>
 		<downloads>
 			<downloadurl type="upgrade" format="zip">https://github.com/RSGallery2/RSGallery2_Module_LatestImages/releases/download/Version_4_0_7/RSGallery2_Module_LatestImages-Version_4_0_7.zip</downloadurl>
@@ -15,7 +15,7 @@
 		<maintainer>team@rsgallery2.org</maintainer>
 		<maintainerurl>rsgallery2.org</maintainerurl>
 		<targetplatform name="joomla" version="3.*"/>
-		<client>1</client>
+		<client>site</client>
 		<infourl>rsgallery2.org</infourl> 		
 	</update>
 </updates>
