@@ -3,7 +3,7 @@
 * Changelog for mod_rsgallery2_latest_galleries 
 * @version $Id$
 * @package mod_rsgallery2_latest_galleries
-* @copyright (C) 2003 - 2018 RSGallery2 Team
+* @copyright (C) 2003 - 2019 RSGallery2 Team
 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
 **/
 
