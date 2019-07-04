@@ -54,6 +54,7 @@
     <property name="build.postfix" value="prepare." override="true" />
     <!--property name="build.postfix" value="" override="true" / -->
 
+
 	<!-- 
 	.........................................................................
 	
@@ -89,6 +90,7 @@
 		<format property="date.year" pattern="%Y" />
 	</tstamp>
 	
+	
 	<!-- 
 	.........................................................................
 	folders
@@ -107,7 +109,6 @@
     <property name="images" value="images" />
     <property name="language" value="language" />
     <property name="tmpl" value="tmpl" />
-
 
 	<!-- 
 	.........................................................................
@@ -176,7 +177,7 @@
 		
 		<reflexive>
 			<fileset dir="..">
-				<include pattern="mod_rsgallery2_latest_images.xml" />
+				<include pattern="${extension}.xml" />
 			</fileset>
 			<filterchain>
 				<replaceregexp>
