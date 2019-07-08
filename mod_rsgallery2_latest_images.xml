@@ -26,11 +26,11 @@
 		<folder>language</folder>
 	</files>
 
-	<languages>
-		<language tag="en-GB">language/en-GB/en-GB.mod_rsgallery2_latest_images.ini</language>
-		<language tag="en-GB">language/en-GB/en-GB.mod_rsgallery2_latest_images.sys.ini</language>
-		<language tag="de-DE">language/de-DE/de-DE.mod_rsgallery2_latest_images.ini</language>
-		<language tag="de-DE">language/de-DE/de-DE.mod_rsgallery2_latest_images.sys.ini</language>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_rsgallery2_latest_images.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_rsgallery2_latest_images.sys.ini</language>
+		<language tag="de-DE">de-DE/de-DE.mod_rsgallery2_latest_images.ini</language>
+		<language tag="de-DE">de-DE/de-DE.mod_rsgallery2_latest_images.sys.ini</language>
 	</languages>
 
 	<config>
