@@ -49,14 +49,14 @@
 					default="3" 
 					label="MOD_RSGALLERY2_LATEST_IMAGES_NUMBER_OF_ROWS" 
 					description="MOD_RSGALLERY2_LATEST_IMAGES_NUMBER_OF_ROWS_DESC" 
-					/>
+				/>
 				<field 
 					name="countcolumns" 
 					type="text" 
 					default="3" 
 					label="MOD_RSGALLERY2_LATEST_IMAGES_NUMBER_OF_COLUMNS" 
 					description="MOD_RSGALLERY2_LATEST_IMAGES_NUMBER_OF_COLUMNS_DESC" 
-					/>
+				/>
 				<field 
 					name="filteringspacer1" 
 					type="spacer" 
@@ -69,7 +69,7 @@
 					default="0" 
 					label="MOD_RSGALLERY2_LATEST_IMAGES_GALLERY_IDS" 
 					description="MOD_RSGALLERY2_LATEST_IMAGES_GALLERY_IDS_DESC" 
-					/>
+				/>
 				<field 
 					name="includechildren" 
 					type="radio" 
@@ -86,7 +86,7 @@
 					name="filteringspacer2" 
 					type="spacer" 
 					hr="true" 
-					/>
+				/>
 
 				<field 
 					name="displaytype" 
@@ -255,10 +255,8 @@
 					label="COM_MODULES_FIELD_CACHING_LABEL"
 					description="COM_MODULES_FIELD_CACHING_DESC"
 				>
-					<option
-						value="1">JGLOBAL_USE_GLOBAL</option>
-					<option
-						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
 				</field>
 				<field
 					name="cache_time"
